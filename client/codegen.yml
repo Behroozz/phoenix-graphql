@@ -1,0 +1,13 @@
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+schema: https://live-event-manager.dev/graphql
+documents: './pages/**/*.ts'
+generates:
+  ./src/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher: graphql-request

@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy: # list of all the config files we what to run inside cluster
+  kubectl:
+    manifests:
+      - ./infra/k8s/* # take a look at the all the files in here and when we start or changed re-deploy them, when we stop skaffold delete all the files related to these deployments
+build:
+  local:
+    push: false # when we build image don't push to dockerhub [default behaviour]
+  artifacts: # all the things that is getting build
+    - image: btabe0914/live-cms-server
+      context: live-cms-server # folder for the image
+      docker:
+        dockerfile: Dockerfile
+      sync: # how to handle any file that change
+        manual:
+          - src: 'src/**/*.ts' # watch all the typescript files
+            dest: . # where to sync these files inside of our container
+    - image: btabe0914/client
+      context: client # folder for image
+      docker:
+        dockerfile: Dockerfile
+      sync: # how to handle any file that change
+        manual:
+          - src: '**/*.js' # need to change to ts and ignore the node_modules,...
+            dest: . # where to sync these files inside of our container

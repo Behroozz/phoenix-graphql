@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true' # tell nginx some path have regex
+spec:
+  rules:
+    - host: live-event-manager.dev # edit our host file to reflect this to work on local machine
+      http:
+        paths:
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: live-cms-server-srv # above request come here
+                port:
+                  number: 3000
+          - path: /graphql
+            pathType: Prefix
+            backend:
+              service:
+                name: live-cms-server-srv # above request come here
+                port:
+                  number: 3000      
+          - path: /?(.*) # Path always start from top, so this one is like catch all other that does not match above
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv # above request come here
+                port:
+                  number: 3000

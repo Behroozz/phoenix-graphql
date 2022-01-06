@@ -1,0 +1,36 @@
+apiVersion: apps/v1 # look v2 kubertnete list of objects
+kind: Deployment
+metadata:
+  name: live-cms-server-depl # when the pods created, we want this name
+spec:
+  replicas: 1 # number of pods
+  selector: # step 1 --> Find all the pods with label app: live-cms-server
+    matchLabels:
+      app: live-cms-server
+  template: # step 2 --> We want a pod with label live-cms-server
+    metadata:
+      labels:
+        app: live-cms-server
+    spec: # pod spec
+      containers: # all the containers inside the pods
+        - name: live-cms-server
+          image: btabe0914/live-cms-server # We can put exact version, otherwise implicit latest
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service # Type is cluster IP service : communication allowed from anything from inside cluster
+metadata:
+  name: live-cms-server-srv
+spec:
+  selector:
+    app: live-cms-server # how to find the set of pods to govern
+  ports:
+    - name: live-cms-server
+      protocol: TCP
+      port: 3000 # server listening on port 3000
+      targetPort: 3000
