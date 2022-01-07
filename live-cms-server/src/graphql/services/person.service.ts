@@ -1,10 +1,10 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
 // import { get } from 'lodash'
 
-class EventService extends RESTDataSource {
+class PersonService extends RESTDataSource {
   constructor() {
-    super();
-    this.baseURL = 'http://dummy.restapiexample.com/api/v1/';
+    super()
+    this.baseURL = 'http://dummy.restapiexample.com/api/v1/'
   }
 
   willSendRequest(request: RequestOptions) {
@@ -18,4 +18,4 @@ class EventService extends RESTDataSource {
   }
 }
 
-export default EventService
+export default PersonService

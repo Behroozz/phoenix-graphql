@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: server-mongo-depl
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: server-mongo # How the deployment find the pod that will create

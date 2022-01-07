@@ -1,5 +1,5 @@
 import { schemaComposer } from './schemaComposer';
-import getPersonById from './entrypoints/query/getPersonById'
+import getPersonById from './query/getPersonById'
 
 schemaComposer.Query.addFields({
   getPersonById: getPersonById

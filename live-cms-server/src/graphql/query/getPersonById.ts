@@ -1,6 +1,6 @@
 
    
-import { PersonGraphQLType } from '../../entities/person';
+import { PersonGraphQLType } from '../entities';
 
 // TODO input types
 export default {
@@ -9,8 +9,7 @@ export default {
       id: `Int!`,
     },
     resolve: async (_:any, args:any, { dataSources }: { dataSources: any}) => {
-      const resp = await dataSources.eventService.getPersonById(args.id)
-      console.log('resp', resp)
+      const resp = await dataSources.personService.getPersonById(args.id)
       return resp
     }
 }
