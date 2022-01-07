@@ -1,7 +1,7 @@
 import React from 'react'
 import { pathOr  } from 'ramda'
 import { useEvents } from './hooks/useEvents'
-import { graphqlRequestClient } from '../../client';
+import { graphqlRequestClient } from '../../api';
 
 import { useGetPersonByIdQueryQuery } from '../../generated/graphql'
 
