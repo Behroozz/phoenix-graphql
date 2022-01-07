@@ -6,9 +6,9 @@ import { pathOr  } from 'ramda'
 import type { Events } from '../types';
 import { queryKeys } from '../../../react-query/query-keys';
 import { useGraphqlRequest } from '../../../hooks/user-request-graphql'
-import { graphqlRequestClient } from '../../../src/client';
+import { graphqlRequestClient } from '../../../client';
 
-import { useGetPersonByIdQueryQuery } from '../../../src/generated/graphql'
+import { useGetPersonByIdQueryQuery } from '../../../generated/graphql'
 
 
 // // for when we need a query function for useQuery

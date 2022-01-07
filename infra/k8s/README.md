@@ -226,14 +226,37 @@ Delete Evicted pods
 kubectl get pod -n POD_NAME | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n POD_NAME
 ```
 
+Get all namespaces
+```
+k get namespaces
+```
 
-
+Get all the pods for all namespaces
+```
+kubectl get pods --all-namespaces
+```
+Get all the pods for specefic namespace
+```
 k get pods -n ingress-nginx
-k logs ingress-nginx-controller-54bfb9bb-hv68s -n ingress-nginx -f
+```
 
+Get logs for a pod in ingress-nginx namespace
+```
+k logs pod_name -n ingress-nginx -f
+```
 
-kubectl get svc ingress-nginx-controller -n ingress-nginx
-
-k get pods
+Get and descrive services
+```
 k get services
 k describe srv service_name
+```
+
+# Docker Cleanup
+```
+docker container prune
+```
+
+```
+docker rmi $(docker images | grep "^<none" | awk '{print $3}')
+```
+

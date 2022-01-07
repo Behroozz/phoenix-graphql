@@ -1,9 +1,9 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request'
 
-const adminAPIEndpoint = 'https://live-event-manager.dev/graphql';
+const apiEndpoint = process.env.API_ENDPOINT || 'https://live-event-manager.dev/graphql';
 
-console.log('adminAPIEndpoint : ', adminAPIEndpoint);
+console.log('apiEndpoint : ', apiEndpoint)
 
 export const graphqlRequestClient = new GraphQLClient(
-  adminAPIEndpoint,
-);
+  apiEndpoint,
+)

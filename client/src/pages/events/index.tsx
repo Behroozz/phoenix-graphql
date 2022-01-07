@@ -1,9 +1,9 @@
 import React from 'react'
 import { pathOr  } from 'ramda'
 import { useEvents } from './hooks/useEvents'
-import { graphqlRequestClient } from '../../src/client';
+import { graphqlRequestClient } from '../../client';
 
-import { useGetPersonByIdQueryQuery } from '../../src/generated/graphql'
+import { useGetPersonByIdQueryQuery } from '../../generated/graphql'
 
 const Events = () => {
   // const data = useEvents()

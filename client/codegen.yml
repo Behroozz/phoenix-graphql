@@ -2,7 +2,7 @@ hooks:
   afterAllFileWrite:
     - prettier --write
 schema: https://live-event-manager.dev/graphql
-documents: './pages/**/*.ts'
+documents: './src/pages/**/*.ts'
 generates:
   ./src/generated/graphql.ts:
     plugins:
