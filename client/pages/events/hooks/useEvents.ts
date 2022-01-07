@@ -6,18 +6,23 @@ import { pathOr  } from 'ramda'
 import type { Events } from '../types';
 import { queryKeys } from '../../../react-query/query-keys';
 import { useGraphqlRequest } from '../../../hooks/user-request-graphql'
-import { eventsQuery } from '../schema/events-query'
+import { graphqlRequestClient } from '../../../src/client';
 
-// for when we need a query function for useQuery
-async function getEvents(request: any): Promise<Events[]> {
-  return await request(eventsQuery)
-}
+import { useGetPersonByIdQueryQuery } from '../../../src/generated/graphql'
+
+
+// // for when we need a query function for useQuery
+// async function getEvents(request: any): Promise<Events[]> {
+//   return await request(useGetPersonByIdQueryQuery, { id: 1 })
+// }
 
 export function useEvents(): Events[] {
   const request = useGraphqlRequest();
   const fallback = [];
   // surpass the referch
-  const { data = fallback } = useQuery(queryKeys.events, () => getEvents(request));
+  // const { data = fallback } = useQuery(queryKeys.events, () => useGetPersonByIdQueryQuery(graphqlRequestClient, { getPersonById : 1}));
+  const { data, isLoading, isSuccess } = useGetPersonByIdQueryQuery(graphqlRequestClient, { getPersonById : 1});
+  console.log('data', data)
   // return eventsget(data, 'events', [])
   return pathOr([], ['events'])(data)
 }

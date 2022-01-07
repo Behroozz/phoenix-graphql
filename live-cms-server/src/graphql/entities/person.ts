@@ -2,22 +2,10 @@ import { composeWithJson, composeInputWithJson } from 'graphql-compose-json';
 import { schemaComposer } from 'graphql-compose';
 
 const restApiResponse = {
-  name: 'Anakin Skywalker',
-  birth_year: '41.9BBY',
-  gender: 'male',
-  mass: 77,
-  homeworld: 'https://swapi.co/api/planets/1/',
-  films: [
-    'https://swapi.co/api/films/5/',
-    'https://swapi.co/api/films/4/',
-    'https://swapi.co/api/films/6/',
-  ],
-  species: ['https://swapi.co/api/species/1/'],
-  starships: [
-    'https://swapi.co/api/starships/59/',
-    'https://swapi.co/api/starships/65/',
-    'https://swapi.co/api/starships/39/',
-  ],
+  employee_name: 'Tiger Nixon',
+  employee_salary: 320800,
+  employee_age: 61,
+  profile_image: ''
 };
 
 export const PersonTC = composeWithJson('Person', restApiResponse);

@@ -8,12 +8,12 @@ import { signupRouter } from './routes/signup'
 import { errorHandler, NotFoundError } from '@vrshared/common'
 import cookieSession from 'cookie-session'
 import dotenv from 'dotenv'
-// import { setUpApolloServer } from './graphql/apollo-server'
+import { setUpApolloServer } from './graphql/apollo-server'
 dotenv.config()
 
 // express server
 const app = express()
-// setUpApolloServer(app)
+setUpApolloServer(app)
 
 // to let express know that is behind the proxy of express nginx
 app.set('trust proxy', true)
@@ -35,7 +35,7 @@ app.use(signoutRouter)
 app.use(signupRouter)
 
 app.all('*', async (req, res, next) => {
-  // TODO how to handle this case?
+  // TODO how to handle this case? 
   if (req.url === '/graphql') return next()
 
   throw new NotFoundError()

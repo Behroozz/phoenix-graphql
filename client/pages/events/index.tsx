@@ -1,15 +1,21 @@
 import React from 'react'
+import { pathOr  } from 'ramda'
 import { useEvents } from './hooks/useEvents'
+import { graphqlRequestClient } from '../../src/client';
+
+import { useGetPersonByIdQueryQuery } from '../../src/generated/graphql'
 
 const Events = () => {
-  const data = useEvents()
+  // const data = useEvents()
+  const { data, isLoading, isFetched } = useGetPersonByIdQueryQuery(graphqlRequestClient, { getPersonById : 1});
+
   // return (
   //   <ul>{data && data?.events && data?.events.map((eventItem) => (
   //     <li key={eventItem.id.toString()}>{eventItem.eventName}</li>
   //   ))}</ul>
   // )
   return(
-    <div>{JSON.stringify(data)}</div>
+    <div>{isFetched && JSON.stringify(data)}</div>
   )
 }
 

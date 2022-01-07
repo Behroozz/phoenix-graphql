@@ -13,5 +13,4 @@ export default {
       console.log('resp', resp)
       return resp
     }
-      //  fetch(`https://swapi.co/api/people/${args.id}/`).then(r => r.json()),
 }

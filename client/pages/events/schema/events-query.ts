@@ -1,11 +1,7 @@
-import { gql } from 'graphql-request'
-
-export const eventsQuery = gql`
-  {
-    events {
-      id
-      eventName
-    }
+export const eventsQuery = /* GraphQL */ `
+query getPersonByIdQuery($getPersonById: Int!) {
+  getPersonById(id: $getPersonById) {
+    employee_name
   }
+}
 `
-
