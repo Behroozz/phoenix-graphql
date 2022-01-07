@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { get } from 'lodash'
+// import { get } from 'lodash'
 
 class EventService extends RESTDataSource {
   constructor() {
@@ -13,7 +13,8 @@ class EventService extends RESTDataSource {
 
   async getPersonById(id: number) {
     const resp = await this.get(`employee/${id}`)
-    return get(resp, 'data')
+    return resp.data
+    // return get(resp, 'data')
   }
 }
 

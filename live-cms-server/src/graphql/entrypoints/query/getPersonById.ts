@@ -6,7 +6,7 @@ import { PersonGraphQLType } from '../../entities/person';
 export default {
     type: PersonGraphQLType,
     args: {
-      id: `Int!`, // equals to `new GraphQLNonNull(GraphQLInt)`
+      id: `Int!`,
     },
     resolve: async (_:any, args:any, { dataSources }: { dataSources: any}) => {
       const resp = await dataSources.eventService.getPersonById(args.id)
