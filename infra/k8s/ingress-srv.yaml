@@ -16,18 +16,18 @@ spec:
               service:
                 name: live-cms-server-srv # above request come here
                 port:
-                  number: 3000
+                  number: 4000
           - path: /graphql
             pathType: Prefix
             backend:
               service:
                 name: live-cms-server-srv # above request come here
                 port:
-                  number: 3000      
+                  number: 4000      
           - path: /?(.*) # Path always start from top, so this one is like catch all other that does not match above
             pathType: Prefix
             backend:
               service:
                 name: client-srv # above request come here
                 port:
-                  number: 3000
+                  number: 5000

@@ -4,8 +4,8 @@
   "description": "# Kubernetee",
   "main": "index.js",
   "scripts": {
-    "dev-delete": "skaffold delete",
-    "dev-start": "skaffold dev --no-prune=false --cache-artifacts=false"
+    "dev:delete": "skaffold delete",
+    "dev:start": "skaffold dev --no-prune=false --cache-artifacts=false"
   },
   "repository": {
     "type": "git",

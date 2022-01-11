@@ -32,5 +32,5 @@ spec:
   ports:
     - name: live-cms-server
       protocol: TCP
-      port: 3000 # server listening on port 3000
-      targetPort: 3000
+      port: 4000 # server listening on port 4000
+      targetPort: 4000

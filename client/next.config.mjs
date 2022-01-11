@@ -12,6 +12,10 @@ const nextConfig = {
         ignored: ['./node_modules'],
       }
     }
+  },
+  env: {
+    // declare here all your variables
+    ENV: process.env.ENV,
   }
 }
 

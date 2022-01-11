@@ -1,6 +1,6 @@
-import Events from './person'
+import League from './league'
 
 const LandingPage = ({ }) => 
-  <Events/>
-
+<><h1>{'League'}</h1><League/></>
+  
 export default LandingPage

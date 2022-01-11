@@ -1,6 +1,6 @@
 
    
-import { PersonGraphQLType } from '../entities';
+import { PersonGraphQLType } from '../../entities';
 
 // TODO input types
 export default {

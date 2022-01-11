@@ -20,3 +20,10 @@ K get pods
 ```
 k delete pod [client-pod-name]
 ```
+
+Run CodeGen
+```
+schema=http://localhost:4000/graphql
+or 
+schema=https://live-event-manager.dev/graphql
+```

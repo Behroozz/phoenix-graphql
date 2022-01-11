@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev -p 5000",
+    "dev:k8s": "ENV=k8s next dev -p 5000",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "generate": "NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen"
